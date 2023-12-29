@@ -1,0 +1,523 @@
+/*
+ Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
+ Theme URI: https://www.koukaki.local
+ Author: Studio Koukaki
+ Author URI: https://www.koukaki.local
+ Template: foce
+ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts par SPONN
+ Version: 0.1
+ */
+
+/*fade-in*/
+section {
+  animation: FADEIN 2s;
+}
+
+@keyframes FADEIN {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* ANIMATION FLEURS TOURNANTES*/
+
+.story h2::after,.story__article::after,#studio h2::before,#studio h2::after,.site-footer ul::after,.nomination::before,.nomination::after,.story::after,.show ul.menu::before,.show ul.menu::after,.menu_container .fleur1,.menu_container .fleur2,.menu_container .fleur3,.menu_container .fleur4,.menu_container .fleur5 {
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*CORRECTION FLEUR SUR TITRE*/
+
+.story h2::before,
+.story__article::before {
+  z-index: 1;
+}
+
+.story h2::after,
+.story__article::after {
+  z-index: 2;
+}
+
+/*FADE IN - TITRE */
+
+.fadeIn {
+  opacity: 0;
+}
+
+.fadeIn.appear {
+  opacity: 1;
+  animation: slide-in-bottom 1s ease-out both;
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+span {
+  display: inline-block;
+  margin: 0px 5px;
+}
+
+span:nth-child(1) {
+  animation-delay: 0.2s !important;
+}
+
+span:nth-child(2) {
+  animation-delay: 0.5s !important;
+}
+
+
+/*section  - article LIEU */
+
+.story #place {
+  position: relative;
+  background-image: url("./assets/new-img-place-koukaki.png");
+}
+
+.cloud {
+  filter: blur(0.5em);
+}
+
+.big_cloud {
+  position: absolute;
+  right: 50px;
+  top: 80px;
+}
+
+.little_cloud {
+  position: absolute;
+  bottom: 55%;
+  right: 35%;
+}
+
+.movingcloud {
+  animation: clouds 3s ease-in-out;
+  filter: blur(0.5em);
+}
+
+@keyframes clouds {
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translateX(-300px);
+  }
+}
+
+/*page nomination -------------------------*/
+
+.nomination {
+  margin-top: 0em;
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.nomination .container {
+  display: flex;
+  align-items: center;
+}
+
+.nomination::before {
+  content: url(./assets/Sunflower.svg);
+  position: absolute;
+  left: 4em;
+  top: 0;
+}
+
+.nomination::after {
+  content: url(./assets/Orchid.svg);
+  position: absolute;
+  right: -4em;
+  bottom: 16em;
+}
+
+.nomination h3 {
+  background-image: url(./assets/tache.svg);
+  background-repeat: no-repeat;
+  background-size: 90%;
+  text-align: left;
+
+  width: 800px;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.nomination img {
+  margin-bottom: 6rem;
+}
+
+/*footer - hidden flowers -------------------------*/
+
+.site-footer::before,
+.site-footer::after {
+  display: none;
+}
+
+/*video desktop-----------------------------------*/
+
+.banner img {
+  position: absolute;
+  z-index: 1;
+  animation: fadeUp 2s, title 4s 2s ease-in-out infinite;
+  width: auto;
+}
+
+.banner {
+  animation: fadeDown 2s;
+}
+
+.banner video {
+  position: fixed;
+  margin-top: -5em;
+}
+
+footer,
+section {
+  background-color: #FFF5E9;
+}
+
+#studio {
+  position: relative;
+  overflow: hidden;
+  margin-top: 0em;
+}
+
+.site-footer ul::after {
+  z-index: 0;
+}
+
+footer li {
+  z-index: 2
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(50%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes title {
+  0% {
+    transform: translate(0%);
+  }
+  50% {
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translate(0%);
+  }
+}
+
+
+/* MENU BURGER ACTION --------------------- */
+.menu-toggle .line {
+  height: 1px;
+  width: 40px;
+  margin: 6px 0;
+}
+
+.menu-toggle.active .line:first-child {
+  transition: 0.3s ease-in-out;
+  transform: translate(0, 3px) rotate(-45deg);
+}
+
+.menu-toggle.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .line:last-child {
+  transition: 0.3s ease-in-out;
+  transform: translate(0, -10px) rotate(45deg);
+}
+
+/*NAV FULL SCREEN HAMBURGER--------------------------- */
+
+nav#site-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.site-title {
+  text-align: center;
+  width: 100%;
+}
+
+button.menu-toggle {
+  display: inline-block;
+}
+
+.menu_container {
+  display: none;
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+.menu_container.open {
+  display: block;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  background-color: #FFF5E9;
+  animation: fade 0.5s ease-in-out forwards;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.open ul.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+#footer_menu {
+  display: flex;
+  width: 100%;
+  height: 40%;
+  justify-content: center;
+  align-items: center;
+}
+
+ul.menu li a {
+  font-size: 64px;
+  margin: 10px 0px;
+}
+
+ul.menu li a:hover {
+  text-shadow: 0 0 0.2em #eb5a35;
+}
+
+.menu_container .logo-nav {
+  display: block;
+  margin: auto;
+}
+
+.menu_container .cat1 {
+  position: absolute;
+  top: 14%;
+  left: 20%;
+}
+
+.menu_container .cat2 {
+  position: absolute;
+  bottom: 45%;
+  right: 10%;
+}
+
+.menu_container .cat3 {
+  position: absolute;
+  bottom: 19%;
+  left: 6%;
+}
+
+.menu_container .fleur1 {
+  position: absolute;
+  top: 10%;
+  left: -3%;
+}
+
+.menu_container .fleur2 {
+  position: absolute;
+  top: 10%;
+  right: 11%;
+}
+
+.menu_container .fleur2 {
+  position: absolute;
+  top: 10%;
+  right: 11%;
+}
+
+.menu_container .fleur3 {
+  width: 5%;
+  position: absolute;
+  top: 33%;
+  right: -2%;
+}
+
+.menu_container .fleur4 {
+  width: 4%;
+  position: absolute;
+  top: 40%;
+  left: 15%;
+}
+
+.menu_container .fleur5 {
+  position: absolute;
+  bottom: -30%;
+  right: -19%;
+  z-index: -1;
+}
+
+.menu_container .cat1,
+.menu_container .cat2,
+.menu_container .cat3 {
+  animation: flyingcat 3s ease-in-out infinite;
+}
+
+@keyframes flyingcat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+/*CARROSEL-------------------------- */ 
+
+.main-character {
+  max-width: 1440px;
+  position: relative;
+  margin: 0 auto;
+  height: 100%;
+  overflow: hidden;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide img {
+  display: block;
+  max-width: 500px;
+  height: 500px;
+  width: 480px;
+}
+
+/*--------------------------------------------RESPONSIVE-------------------------------------------------*/
+
+@media screen and (max-width: 1024px) {
+
+  /*fleurs*/
+  #studio h2::before,
+  #studio h2::after,
+  .nomination::before,
+  .nomination::after {
+    display: none;
+  }
+
+  /*Le lieu section*/
+
+  #place div img {
+    display: none;
+  }
+
+  /*nomination section*/
+
+  .nomination h3 {
+    background-size: 75%;
+  }
+
+  .nomination .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .nomination .container h3{
+    text-align: center;
+  }
+
+  /*video désactivé*/
+
+  .banner video {
+    display: none;
+  }
+
+  /*footer menu*/
+
+  #footer_menu {
+    height: 10%;
+  }
+
+  /*font size*/
+
+  ul.menu li a {
+    font-size: 35px;
+}
+}
+
+@media screen and (min-width: 1024px) {
+  /*désactiver l'image*/
+  .banner {
+    background-image: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+    /*désactiver animation dans menu*/
+  .menu_container .cat1,
+  .menu_container .cat2,
+  .menu_container .cat3, 
+  .menu_container .fleur1,
+  .menu_container .fleur2, 
+  .menu_container .fleur3, 
+  .menu_container .fleur4, 
+  .menu_container .fleur5 {
+    display: none;
+}
+}
